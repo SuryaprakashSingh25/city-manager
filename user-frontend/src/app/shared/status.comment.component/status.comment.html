@@ -1,0 +1,17 @@
+<div class="modal-overlay" (click)="onCancel()"></div>
+
+  <div class="modal-container" (click)="$event.stopPropagation()">
+    <h3>Change Status to <span>{{ statusLabel }}</span></h3>
+    <textarea
+      [(ngModel)]="comment"
+      placeholder="Enter your comment (required)"
+      rows="4"
+    ></textarea>
+
+    <div class="modal-actions">
+      <button class="cancel-btn" (click)="onCancel()">Cancel</button>
+      <button class="submit-btn" [disabled]="!comment.trim()" (click)="onConfirm()">
+        Submit
+      </button>
+    </div>
+  </div>

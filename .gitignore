@@ -1,0 +1,51 @@
+# ======================
+# Spring Boot / Java
+# ======================
+*.class
+*.jar
+*.war
+*.ear
+*.log
+target/
+bin/
+*.iml
+*.ipr
+*.iws
+*.classpath
+*.project
+.idea/
+*.hprof
+
+# Maven / Gradle
+.mvn/wrapper/maven-wrapper.jar
+.gradle/
+build/
+!gradle-wrapper.jar
+.gradle-cache/
+
+# ======================
+# Node / Angular
+# ======================
+node_modules/
+dist/
+.angular/
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ======================
+# OS / IDE Files
+# ======================
+.DS_Store
+Thumbs.db
+.vscode/
+*.swp
+*.swo
+
+# ======================
+# Optional: environment files
+# ======================
+.env
+.env.local
+.env.*.local

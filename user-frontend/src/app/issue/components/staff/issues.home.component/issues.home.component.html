@@ -1,0 +1,102 @@
+<h2>Staff Issues</h2>
+
+<div class="staff-issues-container">
+  <div class="issues-header">
+    <div class="toggle-buttons">
+      <button
+        [class.active]="selectedTab === 'open'"
+        (click)="onToggle('open')"
+      >
+        Open Issues
+      </button>
+      <button
+        [class.active]="selectedTab === 'assigned'"
+        (click)="onToggle('assigned')"
+      >
+        Assigned Issues
+      </button>
+    </div>
+  </div>
+
+  <div class="filters">
+  <!-- Status filter only for assigned tab -->
+  <div *ngIf="selectedTab === 'assigned'">
+    <label for="status">Status:</label>
+    <select id="status" (change)="setFilterStatus($event)">
+      <option value="">All</option>
+      <option value="OPEN">Open</option>
+      <option value="IN_PROGRESS">In Progress</option>
+      <option value="ON_HOLD">On Hold</option>
+      <option value="REJECTED">Rejected</option>
+      <option value="RESOLVED">Resolved</option>
+    </select>
+  </div>
+
+  <!-- Sort dropdown for both tabs -->
+  <label for="sortDirection">
+    {{ selectedTab === 'open' ? 'Creation Date' : 'Updation Date' }}:
+  </label>
+  <select id="sortDirection" (change)="changeSort($event)">
+    <option value="ASC">Oldest First</option>
+    <option value="DESC">Newest First</option>
+  </select>
+</div>
+
+
+  <hr class="divider" />
+
+  <div *ngIf="issues.length > 0" class="issue-grid">
+    <div
+      *ngFor="let issue of issues; let i = index"
+      class="issue-card"
+      [class.locked]="issue.locked"
+      [routerLink]="
+        !issue.locked
+          ? selectedTab === 'open'
+            ? ['/staff/issues/open', issue.id]
+            : ['/staff/issues/assigned', issue.id]
+          : null
+      "
+    >
+      <div class="lock-overlay" *ngIf="issue.locked">🔒 Locked</div>
+
+      <img
+        [src]="'assets/images/issue-' + ((i % 4) + 1) + '.jpg'"
+        alt="Issue Image"
+        class="issue-image"
+      />
+
+      <hr />
+
+      <div class="issue-content">
+        <h3>{{ issue.title }}</h3>
+        <p><strong>Status:</strong> {{ issue.status }}</p>
+        <p>{{ issue.description }}</p>
+        <small>
+          {{
+            selectedTab === "open"
+              ? "Created At: " + (issue.createdAt | date : "short")
+              : "Updated At: " + (issue.updatedAt | date : "short")
+          }}
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="issues.length === 0" class="empty-state">
+    You have no {{ selectedTab }} issues.
+  </div>
+
+  <div class="pagination" *ngIf="totalPages > 1">
+    <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 0">
+      Previous
+    </button>
+    <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+    <button
+      (click)="goToPage(currentPage + 1)"
+      [disabled]="currentPage + 1 >= totalPages"
+    >
+      Next
+    </button>
+  </div>
+</div>

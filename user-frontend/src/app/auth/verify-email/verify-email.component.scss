@@ -1,0 +1,21 @@
+.auth-container {
+  max-width: 420px;
+  margin: 8% auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+  text-align: center;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #333;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #555;
+  }
+}

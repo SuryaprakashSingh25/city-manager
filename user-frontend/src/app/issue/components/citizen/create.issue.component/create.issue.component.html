@@ -1,0 +1,37 @@
+<div class="create-issue-container">
+  <h2>Create New Issue</h2>
+
+  <form [formGroup]="issueForm">
+    <label for="title">Title</label>
+    <input id="title" formControlName="title" type="text" placeholder="Enter issue title" />
+
+    <label for="description">Description</label>
+    <textarea id="description" formControlName="description" placeholder="Enter issue description"></textarea>
+
+    <label for="location">Location</label>
+    <textarea id="location" formControlName="location" placeholder="Enter issue location"></textarea>
+
+    <label for="file">Attachment</label>
+    <input id="file" type="file" (change)="onFileSelected($event)" />
+
+    <div *ngIf="uploadProgress > 0" class="progress">
+      Uploading: {{ uploadProgress }}%
+    </div>
+
+    <div *ngIf="uploadedMedia.length > 0" class="uploaded-list">
+      <h4>Uploaded Attachments:</h4>
+      <ul>
+        <li *ngFor="let media of uploadedMedia">
+          {{ media.fileName }}
+          <button type="button" (click)="removeUploadedMedia(media.mediaId)">Remove</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="buttons">
+      <button type="button" (click)="saveDraft()" [disabled]="!issueForm.valid || draftIssueId">Save Draft</button>
+      <button type="button" (click)="uploadMedia()" [disabled]="!selectedFile || !draftIssueId">Upload Attachment</button>
+      <button type="button" (click)="submitIssue()" [disabled]="!draftIssueId || uploadedMedia.length === 0">Submit Issue</button>
+    </div>
+  </form>
+</div>

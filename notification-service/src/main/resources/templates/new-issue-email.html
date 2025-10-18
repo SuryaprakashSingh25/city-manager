@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>New Issue Created</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.5;">
+<h2>New Issue Created</h2>
+<p>A new issue has been created:</p>
+<p><strong>Title:</strong> <span th:text="${title}"></span></p>
+<p><strong>Description:</strong> <span th:text="${description}"></span></p>
+<p>
+  <a th:href="@{${issueUrl}}"
+     style="background-color: #2196F3; color: white; padding: 10px 20px; text-decoration: none;">
+    View Issue
+  </a>
+</p>
+</body>
+</html>

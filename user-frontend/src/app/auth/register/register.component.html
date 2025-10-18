@@ -1,0 +1,48 @@
+<div class="auth-container">
+  <h2>Create Account</h2>
+  
+  <form #registerForm="ngForm" (ngSubmit)="register(registerForm)">
+    <!-- Email -->
+    <input 
+      type="email" 
+      placeholder="Email" 
+      [(ngModel)]="email" 
+      name="email" 
+      required 
+      email 
+      #emailCtrl="ngModel"
+    />
+    <div class="error" *ngIf="emailCtrl.invalid && emailCtrl.touched">
+      <small *ngIf="emailCtrl.errors?.['required']">Email is required.</small>
+      <small *ngIf="emailCtrl.errors?.['email']">Invalid email format.</small>
+    </div>
+
+    <!-- Password -->
+    <div class="password-wrapper">
+  <input 
+    [type]="showPassword ? 'text' : 'password'" 
+    placeholder="Password" 
+    [(ngModel)]="password" 
+    name="password" 
+    required 
+    minlength="8"
+    pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+    #passwordCtrl="ngModel"
+  />
+  <button type="button" class="toggle-btn" (click)="togglePassword()" tabindex="-1">
+    {{ showPassword ? '🙈' : '👁️' }}
+  </button>
+</div>
+
+    <div class="error" *ngIf="passwordCtrl.invalid && passwordCtrl.touched">
+      <small *ngIf="passwordCtrl.errors?.['required']">Password is required.</small>
+      <small *ngIf="passwordCtrl.errors?.['minlength']">Must be at least 8 characters.</small>
+      <small *ngIf="passwordCtrl.errors?.['pattern']">Must include uppercase, lowercase, number, and special character.</small>
+    </div>
+
+    <!-- Submit -->
+    <button type="submit" [disabled]="registerForm.invalid">Register</button>
+  </form>
+
+  <a routerLink="/login">Already have an account? Login</a>
+</div>

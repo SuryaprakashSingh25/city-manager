@@ -1,0 +1,42 @@
+.app-footer {
+  background: #f8f9fa;         // light professional background
+  color: #4b5563;               // dark gray text for readability
+  padding: 1rem 2rem;
+  font-size: 0.9rem;
+  border-top: 1px solid #e5e7eb; // subtle separation
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.05); // subtle top shadow
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .brand {
+    font-weight: 600;
+    font-size: 1rem;
+    color: #1f2937; // dark text for brand
+  }
+
+  .copy {
+    font-size: 0.85rem;
+    color: #6b7280; // muted gray
+  }
+
+  a {
+    color: #4b5563;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: #1f2937;
+    }
+  }
+}

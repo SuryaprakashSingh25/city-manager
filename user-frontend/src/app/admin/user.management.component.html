@@ -1,0 +1,30 @@
+<div class="user-container">
+  <h2>User Management</h2>
+
+  <div *ngIf="message" class="message">{{ message }}</div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Status</th>
+        <th>Change Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.email }}</td>
+        <td>{{ user.role }}</td>
+        <td>{{ user.status }}</td>
+        <td>
+          <select [value]="user?.role" (change)="updateRole(user, $event)">
+            <option value="CITIZEN">CITIZEN</option>
+            <option value="STAFF">STAFF</option>
+            <option value="ADMIN">ADMIN</option>
+          </select>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

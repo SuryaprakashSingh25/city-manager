@@ -1,0 +1,32 @@
+<div class="back-button">
+  <button (click)="goBack()">⬅ Back</button>
+</div>
+
+<div *ngIf="issue" class="issue-detail-card">
+  <div class="issue-detail-left">
+    <a *ngIf="mediaUrls.length" [href]="mediaUrls[0]" target="_blank">
+    <img [src]="mediaUrls[0]" alt="Issue Image" class="issue-detail-image" />
+  </a>
+
+    <div *ngIf="mediaUrls.length > 1" class="extra-attachments">
+      <h4>More Attachments</h4>
+      <div class="thumbnail-grid">
+        <a *ngFor="let url of mediaUrls.slice(1)" [href]="url" target="_blank">
+        <img [src]="url" alt="Attachment" class="thumbnail" />
+      </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-detail-content">
+    <h2>{{ issue.title }}</h2>
+    <p><strong>Status:</strong> {{ issue.status }}</p>
+    <p *ngIf="issue.staffComment && issue.staffComment.trim() !== ''">
+      <strong>Staff Comment:</strong> {{ issue.staffComment }}
+    </p>
+    <p>{{ issue.description }}</p>
+    <p>🌍 {{ issue.location }}</p>
+    <small>Created At: {{ issue.createdAt | date:'short' }}</small>
+    <small *ngIf="issue.assignedStaffId">Assigned To: Staff</small>
+  </div>
+</div>

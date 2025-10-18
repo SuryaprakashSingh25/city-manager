@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Issue Status Updated</title>
+</head>
+<body style="font-family: Arial, sans-serif; line-height: 1.5;">
+<h2>Issue Status Updated</h2>
+<p>Your issue has been updated:</p>
+<p><strong>Issue ID:</strong> <span th:text="${issueId}"></span></p>
+<p><strong>New Status:</strong> <span th:text="${newStatus}"></span></p>
+<p>
+  <a th:href="@{${issueUrl}}"
+     style="background-color: #4CAF50; color: white; padding: 10px 20px; text-decoration: none;">
+    View Issue
+  </a>
+</p>
+</body>
+</html>

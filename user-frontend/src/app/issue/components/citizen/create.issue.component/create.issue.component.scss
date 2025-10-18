@@ -1,0 +1,77 @@
+.create-issue-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.6rem;
+  margin-top: 0.3rem;
+  border-radius: 8px;
+  border: 1px solid #cfd8dc;
+  font-size: 0.95rem;
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+button {
+  padding: 0.55rem 1.3rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 59, 102, 0.3);
+
+  background: linear-gradient(135deg, #0d3b66, #0077b6);
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 59, 102, 0.4);
+    background: linear-gradient(135deg, #0077b6, #00a6ff);
+  }
+
+  &:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 4px 12px rgba(0, 59, 102, 0.3);
+  }
+
+  &:disabled {
+    background: #90a4ae;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 0.8rem;
+}
+
+.progress {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #1976d2;
+}

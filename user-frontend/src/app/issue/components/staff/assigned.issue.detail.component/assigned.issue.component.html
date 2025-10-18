@@ -1,0 +1,108 @@
+<div class="back-button">
+  <button (click)="goBack()">⬅ Back</button>
+</div>
+
+<div *ngIf="issue" class="issue-detail-card">
+  <div class="issue-detail-left">
+    <div class="image-wrapper" *ngIf="mediaUrls.length">
+      <a [href]="mediaUrls[0].url" target="_blank">
+        <img
+          [src]="mediaUrls[0].url"
+          alt="Issue Image"
+          class="issue-detail-image"
+        />
+      </a>
+      <button
+        class="download-btn"
+        (click)="downloadMedia(mediaUrls[0].id)"
+        title="Download"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="white"
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+        >
+          <path d="M5 20h14v-2H5v2zm7-18v12l5-5h-3V4h-4v5H7l5 5z" />
+        </svg>
+      </button>
+    </div>
+
+    <div *ngIf="mediaUrls.length > 1" class="extra-attachments">
+      <h4>More Attachments</h4>
+      <div class="thumbnail-grid">
+        <div
+          *ngFor="let media of mediaUrls.slice(1)"
+          class="thumbnail-container"
+        >
+          <a [href]="media.url" target="_blank">
+            <img [src]="media.url" alt="Attachment" class="thumbnail" />
+          </a>
+          <button
+            class="download-btn"
+            (click)="downloadMedia(media.id)"
+            title="Download"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="white"
+              viewBox="0 0 24 24"
+              width="16"
+              height="16"
+            >
+              <path d="M5 20h14v-2H5v2zm7-18v12l5-5h-3V4h-4v5H7l5 5z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="issue-detail-content">
+    <h2>{{ issue.title }}</h2>
+    <p><strong>Status:</strong> {{ issue.status }}</p>
+    <p>{{ issue.description }}</p>
+    <p>🌍 {{ issue.location }}</p>
+    <small>Updated At: {{ issue.updatedAt | date : "short" }}</small>
+    <small *ngIf="issue.assignedStaffId">Assigned To: Staff</small>
+
+    <div class="status-buttons">
+      <button
+        class="reject-btn"
+        (click)="openModal('REJECTED')"
+        [disabled]="issue.status === 'REJECTED' || issue.status === 'RESOLVED'"
+      >
+        Reject
+      </button>
+
+      <button
+        class="onhold-btn"
+        (click)="openModal('ON_HOLD')"
+        [disabled]="
+          issue.status === 'ON_HOLD' ||
+          issue.status === 'REJECTED' ||
+          issue.status === 'RESOLVED'
+        "
+      >
+        On Hold
+      </button>
+
+      <button
+        class="resolved-btn"
+        (click)="openModal('RESOLVED')"
+        [disabled]="issue.status === 'RESOLVED' || issue.status === 'REJECTED'"
+      >
+        Resolve
+      </button>
+    </div>
+
+    <app-status-comment
+      *ngIf="showModal"
+      [statusLabel]="pendingStatus"
+      (confirm)="confirmComment($event)"
+      (cancel)="cancelModal()"
+    >
+    </app-status-comment>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+.app-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+
+  /* Light professional background */
+  background: #f8f9fa;  // very light gray
+  color: #2c3e50;        // dark blue-gray text for contrast
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); // subtle shadow
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .logo {
+      height: 42px;
+      width: auto;
+    }
+
+    .app-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      color: #2c3e50;
+    }
+  }
+
+  .actions {
+  .logout-btn {
+    padding: 0.55rem 1.3rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 59, 102, 0.3);
+
+    background: linear-gradient(135deg, #0d3b66, #0077b6);
+    color: #fff;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(0, 59, 102, 0.4);
+      background: linear-gradient(135deg, #0077b6, #00a6ff);
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: 0 4px 12px rgba(0, 59, 102, 0.3);
+    }
+  }
+}
+
+}

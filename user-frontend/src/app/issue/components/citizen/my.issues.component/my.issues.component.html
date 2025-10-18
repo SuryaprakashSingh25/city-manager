@@ -1,0 +1,57 @@
+<h2>My Issues</h2>
+
+<div class="issues-header">
+  <button routerLink="/citizen/issues/create" class="btn-create-issue">
+    + Create Issue
+  </button>
+
+  <div class="filters">
+    <label for="status">Status:</label>
+    <select id="status" (change)="setFilterStatus($event)">
+      <option value="">All</option>
+      <option value="OPEN">Open</option>
+      <option value="IN_PROGRESS">In Progress</option>
+      <option value="ON_HOLD">In Progress</option>
+      <option value="REJECTED">In Progress</option>
+      <option value="RESOLVED">Resolved</option>
+    </select>
+
+    <label for="sortDirection">Creation Date:</label>
+    <select id="sortDirection" (change)="changeSort($event)">
+      <option value="DESC">Newest First</option>
+      <option value="ASC">Oldest First</option>
+    </select>
+  </div>
+</div>
+
+<hr class="divider" />
+
+<div *ngIf="issues.length > 0" class="issue-grid">
+  <div *ngFor="let issue of issues; let i = index" 
+       class="issue-card"
+       [routerLink]="['/citizen/issues', issue.id]">
+       
+    <img [src]="'assets/images/issue-' + ((i % 4) + 1) + '.jpg'" 
+         alt="Issue Image" 
+         class="issue-image" />
+
+    <hr />
+
+    <div class="issue-content">
+      <h3>{{ issue.title }}</h3>
+      <p><strong>Status:</strong> {{ issue.status }}</p>
+      <p>{{ issue.description }}</p>
+      <small>Created At: {{ issue.createdAt | date:'short' }}</small>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="issues.length === 0" class="no-issues">
+  You have no issues.
+</div>
+
+<div class="pagination" *ngIf="totalPages > 1">
+  <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 0">Previous</button>
+  <span>Page {{ currentPage + 1 }} of {{ totalPages }}</span>
+  <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage + 1 >= totalPages">Next</button>
+</div>
