@@ -6,7 +6,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 📌 Service Responsibilities
+## 1. Service Responsibilities
 
 - User registration & authentication
 - Email verification
@@ -17,7 +17,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 🏗️ Service Context
+## 2. Service Context
 
 - Exposed via **API Gateway**
 - Registered with **Eureka Service Discovery**
@@ -26,7 +26,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 🔐 Security & Role-Based Access
+## 3. Security & Role-Based Access
 
 | Endpoint | Method | Description | Role |
 |--------|--------|-------------|------|
@@ -43,7 +43,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 🔗 API Endpoints Overview
+## 4. API Endpoints Overview
 
 ### Register User
 **POST** `/api/users/register`
@@ -114,19 +114,19 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 🔄 Event-Driven Communication (Kafka)
+## 5. Event-Driven Communication (Kafka)
 
-### 📤 Published Events
+### a Published Events
 - **UserRoleUpdatedEvent**
   - Emitted when user role changes
   - Enables other services to react asynchronously
 
-### 📥 Consumed Events
+### b Consumed Events
 - None
 
 ---
 
-## 🧠 Internal Design Notes
+## 6. Internal Design Notes
 
 - Uses **hexagonal architecture**
   - `exposition` → controllers & DTOs
@@ -138,7 +138,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## ⚙️ Configuration & Dependencies
+## 7. Configuration & Dependencies
 
 - MongoDB – user persistence
 - Kafka – domain event publishing
@@ -147,7 +147,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 📘 API Documentation
+## 8. API Documentation
 
 - Swagger / OpenAPI enabled
 - Accessible via API Gateway
@@ -155,7 +155,7 @@ and exposes authentication APIs used by the frontend and API Gateway.
 
 ---
 
-## 🎯 Why This Service Matters
+## 9. Why This Service Matters
 
 - Centralized authentication & authorization
 - Decouples identity concerns from business services
