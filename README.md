@@ -12,6 +12,22 @@ data access across large datasets.
 
 ---
 
+## 📚 Table of Contents
+
+- [Functional Overview](#-functional-overview)
+- [Architecture Overview](#️-architecture-overview)
+- [Tech Stack](#️-tech-stack)
+- [Security (JWT)](#-security-jwt)
+- [Event-Driven Communication (Kafka)](#-event-driven-communication-kafka)
+- [Distributed Locking (Redis)](#-distributed-locking-redis)
+- [Media Storage (AWS S3)](#️-media-storage-aws-s3)
+- [API Documentation (Swagger)](#-api-documentation-swagger)
+- [Centralized Configuration](#️-centralized-configuration)
+- [Running the Project Locally](#️-running-the-project-locally)
+- [Testing & Code Quality](#-testing--code-quality)
+- [What This Project Demonstrates](#-what-this-project-demonstrates)
+
+
 ## 📌 Functional Overview
 
 - Users register with default **CITIZEN** access
