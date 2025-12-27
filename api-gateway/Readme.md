@@ -6,7 +6,7 @@ authentication enforcement, and integration with service discovery.
 
 ---
 
-## 📌 Responsibilities
+## 1 Responsibilities
 
 - Acts as the centralized ingress for all frontend traffic
 - Routes requests to backend microservices using service discovery
@@ -16,7 +16,7 @@ authentication enforcement, and integration with service discovery.
 
 ---
 
-## 🏗️ Service Context
+## 2 Service Context
 
 - Built using **Spring Cloud Gateway**
 - Registered with **Eureka Service Discovery**
@@ -26,7 +26,7 @@ authentication enforcement, and integration with service discovery.
 
 ---
 
-## 🔀 Routing Configuration
+## 3 Routing Configuration
 
 Routing is configured using Spring Cloud Gateway and Eureka-based service discovery.
 
@@ -44,7 +44,7 @@ Service IDs are normalized to lowercase.
 
 ---
 
-## 🔐 Security Responsibilities
+## 4 Security Responsibilities
 
 - Validates JWT tokens on incoming requests
 - Rejects unauthenticated or malformed requests
@@ -53,7 +53,7 @@ Service IDs are normalized to lowercase.
 
 ---
 
-## 🔍 Service Discovery
+## 5 Service Discovery
 
 - Uses **Eureka Client**
 - Automatically discovers registered services
@@ -62,7 +62,7 @@ Service IDs are normalized to lowercase.
 
 ---
 
-## ⚙️ Configuration & Dependencies
+## 6 Configuration & Dependencies
 
 - Spring Cloud Gateway
 - Spring Security
@@ -71,7 +71,7 @@ Service IDs are normalized to lowercase.
 
 ---
 
-## 📘 API Documentation
+## 7 API Documentation
 
 - API Gateway does not expose domain-specific APIs
 - Swagger / OpenAPI documentation is provided by downstream services
@@ -79,7 +79,7 @@ Service IDs are normalized to lowercase.
 
 ---
 
-## 🎯 Why This Service Matters
+## 8 Why This Service Matters
 
 - Simplifies client-side communication
 - Centralizes security enforcement
