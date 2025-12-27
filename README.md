@@ -17,6 +17,7 @@ data access across large datasets.
 - [Functional Overview](#-functional-overview)
 - [Architecture Overview](#️-architecture-overview)
 - [Tech Stack](#️-tech-stack)
+- [Microservices Overview](#️-microservices-overview)
 - [Security (JWT)](#-security-jwt)
 - [Event-Driven Communication (Kafka)](#-event-driven-communication-kafka)
 - [Distributed Locking (Redis)](#-distributed-locking-redis)
@@ -77,6 +78,21 @@ The system follows a **distributed microservices architecture** with:
 - Redis (local)
 - AWS S3 (media storage)
 - Git & GitHub
+
+---
+
+## Microservices Overview
+
+This project is structured as a set of modular microservices.  
+Each service has its own README with detailed endpoints, roles, and usage.
+
+| Service | Description | README |
+|---------|------------|--------|
+| `user-service` | Handles user registration, login, and authentication | [View README](user-service/Readme.md) |
+| `issue-service` | Manages issue creation, assignment, and status updates | [View README](issue-service/Readme.md) |
+| `media-service` | Handles media upload, download, and S3 presigned URL access | [View README](media-service/Readme.md) |
+| `notification-service` | Sends email and system notifications based on events | [View README](notification-service/Readme.md) |
+| `api-gateway` | Routes requests to appropriate microservices | [View README](api-gateway/Readme.md) |
 
 ---
 
