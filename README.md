@@ -54,6 +54,16 @@ The system follows a **distributed microservices architecture** with:
 - Dockerized local infrastructure (Kafka, Zookeeper, Redis)
 - Domain-driven microservices with clear separation of concerns
 
+### System Architecture
+
+> **Note:** All Spring Boot services run locally. Kafka, Redis, and Zookeeper are containerized using Docker. MongoDB Atlas and AWS S3 are external managed services used for persistence and media storage.
+
+<p align="center">
+  <img src="docs/images/City-Manager.png"
+       alt="City Manager Architecture"
+       width="1000">
+</p>
+
 ---
 
 ## 🛠️ Tech Stack
