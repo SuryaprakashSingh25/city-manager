@@ -22,6 +22,7 @@ bin/
 build/
 !gradle-wrapper.jar
 .gradle-cache/
+docker-compose.yml
 
 # ======================
 # Node / Angular
